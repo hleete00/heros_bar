@@ -1,0 +1,43 @@
+{% extends 'generic/base.html' %}
+
+{% block content %}
+{% load static %}
+    <center>
+        <h1 class="text-white"> Meet Our Crew </h1>
+    </center>
+    <br>
+
+    <div class="row py-6">
+        {% for employee in employees%}
+            <div class="card col-md-5 mx-auto bg-dark text-white border-light mb-4">
+                <div class="card-header border-light">
+                    <strong> {{ employee.name }} </strong> 
+                    {% if user.is_superuser %}
+                        <button onclick="location.href='{% url 'delete-employee' employee.id %}'" type="submit" class="btn btn-danger btn-sm" style="margin-left: 5px">Delete</button>
+                        <button onclick="location.href='{% url 'update-employee' employee.id %}'" type="submit" class="btn btn-secondary btn-sm" style="margin-right: 5px">Update</button>
+                    {% endif %}
+                </div>
+                <div class="card-body">
+                    <div class="card-img-top d-flex bg-dark text-white">
+                        {% if employee.photo %}
+                            <div>
+                                <img class="img-fluid" src={{ employee.photo.url }} alt="" height="150" width="150">
+                            </div>
+                    {% endif %}
+                        <p>
+                            <ul style="list-style: none;">
+                                <li><strong>{{ employee.role }}</strong></li>
+                                <br>
+                                <li>{{ employee.description }}</li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>           
+            </div>
+        {% endfor %}
+    </div>
+
+
+{% endblock content %}
+
+

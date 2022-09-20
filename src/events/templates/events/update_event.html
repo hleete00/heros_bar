@@ -1,0 +1,14 @@
+{% extends 'generic/base.html' %}
+
+{% block content %}
+    <center>
+        <h1 class="text-white"> Update Event </h1>
+        <br><br>
+        <form action="" method=POST class="text-white" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <br>
+            <input type="submit" value="Update" class="btn btn-secondary" name="eventButton">
+        </form>
+    </center>
+{% endblock content %}

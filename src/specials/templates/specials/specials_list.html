@@ -1,0 +1,195 @@
+{% extends 'generic/base.html' %}
+<title>Drink and Food Specials at Hero's!</title>
+
+{% block content %}
+
+    <center><h1 class="text-white">Specials</h1></center>   
+
+    {% load static %}
+
+        <div class="card bg-dark text-white border-light">
+            <div class="card-header border-light">
+                <strong>Monday</strong> 
+                {% if user.is_superuser %}
+                    <button onclick="location.href='{% url 'add-special' %}'" type="submit" class="btn btn-success btn-sm float-right" style="margin-left: 5px">Add</button>
+                {% endif %}  
+            </div>
+            <div class="card-body">
+                <div class="card-img-top d-flex align-items-center bg-dark text-white">
+                    <p>
+                        <ul>
+                            {% for monday_special in monday_specials  %}
+                                <li>
+                                    {{ monday_special.special_text }}
+                                    {% if user.is_superuser %}
+                                        <button onclick="location.href='{% url 'delete-special' monday_special.id %}'" type="submit" class="btn btn-danger btn-sm" style="margin-left: 5px">Delete</button>
+                                        <button onclick="location.href='{% url 'update-special' monday_special.id %}'" type="submit" class="btn btn-secondary btn-sm" style="margin-right: 5px">Update</button>
+                                    {% endif %}
+                                </li>                             
+                            {% endfor %}
+                        </ul>
+                    </p>
+                </div>
+            </div>           
+        </div>
+        <br>
+        <div class="card bg-dark text-white border-light">
+            <div class="card-header border-light">
+                <strong>Tuesday</strong> 
+                {% if user.is_superuser %}
+                    <button onclick="location.href='{% url 'add-special' %}'" type="submit" class="btn btn-success btn-sm float-right" style="margin-left: 5px">Add</button>
+                {% endif %}  
+            </div>
+            <div class="card-body">
+                <div class="card-img-top d-flex align-items-center bg-dark text-white">
+                    <p>
+                        <ul>
+                            {% for tuesday_special in tuesday_specials  %}
+                                <li>
+                                    {{ tuesday_special.special_text }}
+                                    {% if user.is_superuser %}
+                                        <button onclick="location.href='{% url 'delete-special' tuesday_special.id %}'" type="submit" class="btn btn-danger btn-sm" style="margin-left: 5px">Delete</button>
+                                        <button onclick="location.href='{% url 'update-special' tuesday_special.id %}'" type="submit" class="btn btn-secondary btn-sm" style="margin-right: 5px">Update</button>
+                                    {% endif %}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </p>
+                </div>
+            </div>           
+        </div>
+        <br>
+        <div class="card bg-dark text-white border-light">
+            <div class="card-header border-light">
+                <strong>Wednesday</strong> 
+                {% if user.is_superuser %}
+                    <button onclick="location.href='{% url 'add-special' %}'" type="submit" class="btn btn-success btn-sm float-right" style="margin-left: 5px">Add</button>
+                {% endif %}  
+            </div>
+            <div class="card-body">
+                <div class="card-img-top d-flex align-items-center bg-dark text-white">
+                    <p>
+                        <ul>
+                            {% for wednesday_special in wednesday_specials  %}
+                                <li>
+                                    {{ wednesday_special.special_text }}
+                                    {% if user.is_superuser %}
+                                        <button onclick="location.href='{% url 'delete-special' wednesday_special.id %}'" type="submit" class="btn btn-danger btn-sm" style="margin-left: 5px">Delete</button>
+                                        <button onclick="location.href='{% url 'update-special' wednesday_special.id %}'" type="submit" class="btn btn-secondary btn-sm" style="margin-right: 5px">Update</button>
+                                    {% endif %}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </p>
+                </div>
+            </div>           
+        </div>
+        <br>
+        <div class="card bg-dark text-white border-light">
+            <div class="card-header border-light">
+                <strong>Thursday</strong> 
+                {% if user.is_superuser %}
+                    <button onclick="location.href='{% url 'add-special' %}'" type="submit" class="btn btn-success btn-sm float-right" style="margin-left: 5px">Add</button>
+                {% endif %}  
+            </div>
+            <div class="card-body">
+                <div class="card-img-top d-flex align-items-center bg-dark text-white">
+                    <p>
+                        <ul>
+                            {% for thursday_special in thursday_specials  %}
+                                <li>
+                                    {{ thursday_special.special_text }}
+                                    {% if user.is_superuser %}
+                                        <button onclick="location.href='{% url 'delete-special' thursday_special.id %}'" type="submit" class="btn btn-danger btn-sm" style="margin-left: 5px">Delete</button>
+                                        <button onclick="location.href='{% url 'update-special' thursday_special.id %}'" type="submit" class="btn btn-secondary btn-sm" style="margin-right: 5px">Update</button>
+                                    {% endif %}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </p>
+                </div>
+            </div>           
+        </div>
+        <br>
+        <div class="card bg-dark text-white border-light">
+            <div class="card-header border-light">
+                <strong>Friday</strong> 
+                {% if user.is_superuser %}
+                    <button onclick="location.href='{% url 'add-special' %}'" type="submit" class="btn btn-success btn-sm float-right" style="margin-left: 5px">Add</button>
+                {% endif %}  
+            </div>
+            <div class="card-body">
+                <div class="card-img-top d-flex align-items-center bg-dark text-white">
+                    <p>
+                        <ul>
+                            {% for friday_special in friday_specials  %}
+                                <li>
+                                    {{ friday_special.special_text }}
+                                    {% if user.is_superuser %}
+                                        <button onclick="location.href='{% url 'delete-special' friday_special.id %}'" type="submit" class="btn btn-danger btn-sm" style="margin-left: 5px">Delete</button>
+                                        <button onclick="location.href='{% url 'update-special' friday_special.id %}'" type="submit" class="btn btn-secondary btn-sm" style="margin-right: 5px">Update</button>
+                                    {% endif %}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </p>
+                </div>
+            </div>           
+        </div>
+        <br>
+        <div class="card bg-dark text-white border-light">
+            <div class="card-header border-light">
+                <strong>Saturday</strong> 
+                {% if user.is_superuser %}
+                    <button onclick="location.href='{% url 'add-special' %}'" type="submit" class="btn btn-success btn-sm float-right" style="margin-left: 5px">Add</button>
+                {% endif %}  
+            </div>
+            <div class="card-body">
+                <div class="card-img-top d-flex align-items-center bg-dark text-white">
+                    <p>
+                        <ul>
+                            {% for saturday_special in saturday_specials  %}
+                                <li>
+                                    {{ saturday_special.special_text }}
+                                    {% if user.is_superuser %}
+                                        <button onclick="location.href='{% url 'delete-special' saturday_special.id %}'" type="submit" class="btn btn-danger btn-sm" style="margin-left: 5px">Delete</button>
+                                        <button onclick="location.href='{% url 'update-special' saturday_special.id %}'" type="submit" class="btn btn-secondary btn-sm" style="margin-right: 5px">Update</button>
+                                    {% endif %}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </p>
+                </div>
+            </div>           
+        </div>
+        <br>
+        <div class="card bg-dark text-white border-light">
+            <div class="card-header border-light">
+                <strong>Sunday</strong> 
+                {% if user.is_superuser %}
+                    <button onclick="location.href='{% url 'add-special' %}'" type="submit" class="btn btn-success btn-sm float-right" style="margin-left: 5px">Add</button>
+                {% endif %}              
+            </div>
+            <div class="card-body">
+                <div class="card-img-top d-flex align-items-center bg-dark text-white">
+                    <p>
+                        <ul>
+                            {% for sunday_special in sunday_specials  %}
+                                <li>
+                                    {{ sunday_special.special_text }}
+                                    {% if user.is_superuser %}
+                                        <button onclick="location.href='{% url 'delete-special' sunday_special.id %}'" type="submit" class="btn btn-danger btn-sm" style="margin-left: 5px">Delete</button>
+                                        <button onclick="location.href='{% url 'update-special' sunday_special.id %}'" type="submit" class="btn btn-secondary btn-sm" style="margin-right: 5px">Update</button>
+                                    {% endif %}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </p>
+                </div>
+            </div>           
+        </div>
+        <br>
+
+    </center>
+
+{% endblock content %}

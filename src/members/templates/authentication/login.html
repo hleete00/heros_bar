@@ -1,0 +1,26 @@
+{% extends 'generic/base.html' %}
+
+{% block content %}
+
+    <h1 class="text-white"> Login </h1>
+    <br><br>
+
+    <form action="" method=POST>
+        {% csrf_token %}
+
+        <div class="mb-2">
+          <label for="exampleInputEmail1" class="form-label text-white">Username</label>
+          <input type="text" class="form-control bg-dark text-white" name="username" aria-describedby="emailHelp">
+        </div>
+        <br>
+        <div class="mb-2">
+          <label for="exampleInputPassword1" class="form-label text-white">Password</label>
+          <input type="password" class="form-control bg-dark text-white" name="password">
+        </div>
+        <br>
+        <input type="submit" value="Submit" class="btn btn-primary" name="login">
+
+    </form>
+
+    <br>
+{% endblock content %}

@@ -1,0 +1,49 @@
+<footer class="bg-dark text-white">
+    {% load static %}
+    <div class="container py-5">
+      <div class="row py-4">
+        <div class="col-lg-2 mb-4 mb-lg-0">
+          <img src="{% static 'footer_logo.jpg' %}" alt="" width="180" class="mb-3">
+        </div>
+        <div class="col-lg-3 mb-4 mb-lg-0">
+          <h6 class="text-uppercase font-weight-bold mb-4">Hero's</h6>
+          <ulclass="list-unstyled mb-0">
+            <p class="font-italic text-muted">1002 Garrison Avenue</p>
+            <p class="font-italic text-muted">Fort Smith, AR 72901</p>
+            <p class="font-italic text-muted">479-763-1000</p>
+          </ul>
+          <ul class="list-inline mt-4">
+            <li class="list-inline-item"><a href="#" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 mb-4 mb-lg-0">
+          <h6 class="text-uppercase font-weight-bold mb-4">Hours of Operation</h6>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-2"><a class="text-muted">Monday - Saturday</a></li>
+            <li class="mb-2"><a class="font-italic text-muted">&nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;Noon - 2am</a></li>
+            <li class="mb-2"><a class="font-italic text-muted">Sunday</a></li>
+            <li class="mb-2"><a class="font-italic text-muted">&nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;11am - 1pm</a></li>
+          </ul>
+        </div>
+        
+
+        <div class="col-lg-4 mb-lg-0">
+          <h6 class="text-uppercase font-weight-bold mb-4">Contact us</h6>
+          <form action="" method="POST" id="contact">
+            {% csrf_token %}
+            <input type="email" placeholder="Enter your email address" class="form-control bg-dark text-white shadow-0 mb-2" name="email">
+            <textarea class="form-control bg-dark text-white" placeholder="Enter your message to us" class="form-control shadow-0 mb-4" name="message"></textarea>
+            <button type="submit" class="btn btn-outline-secondary text-white btn-lg mt-2" name="contactButton" >Send</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Copyrights -->
+    <div class="bg-dark py-4">
+      <div class="container text-center">
+        <p class="text-muted mb-0 py-2">© 2022 Hero's All rights reserved.</p>
+      </div>
+    </div>
+</footer>

@@ -1,0 +1,69 @@
+{% extends 'generic/base.html' %}
+<title>Live Events at Hero's!</title>
+
+{% block content %}
+      
+    <center>
+        <div class="card bg-dark mx-auto border-dark">
+            <div class="card-body text-white">
+                {{calendar|safe}}
+            </div>
+        </div>
+    </center>
+    
+
+
+    <center><h1 class="text-white">Events</h1></center>   
+
+    {% for event in  events %}
+    {% load static %}
+
+        <div class="card bg-dark text-white border-light">
+            <div class="card-header border-light">
+                <strong>{{ event }}</strong> 
+                {% if user.is_superuser %}
+                    <button onclick="location.href='{% url 'delete-event' event.id %}'" type="submit" class="btn btn-danger float-right" style="margin-left: 5px">Delete</button>
+                    <button onclick="location.href='{% url 'update-event' event.id %}'" type="submit" class="btn btn-secondary float-right" style="margin-right: 5px">Update</button>
+                {% endif %}
+            </div>
+            <div class="card-body">
+                <div class="card-img-top d-flex bg-dark">
+                    {% if event.photo %}
+                    <div>
+                        <img class="img-fluid" src={{ event.photo.url }} alt="" height="150" width="150">
+                    </div>
+                    {% endif %}
+                    <p>
+                        <ul>
+                            <li><strong>Event Date:</strong> {{ event.event_date }}</li>
+                            <li><strong>Event Time:</strong> {{ event.event_time }}</li>
+                            <li><strong>Genre:</strong> {{ event.genre }}</li>
+                            <li><strong>Description:</strong> {{ event.description }}</li>
+                        </ul>
+                    </p>
+                </div>
+            </div>           
+        </div>
+        <br>
+
+    {% endfor %}
+
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            {% if events.has_previous %}
+                <li class="page-item"><a class="page-link bg-dark text-white" href="?page=1">&laquo&laquo First</a></li>
+                <li class="page-item"><a class="page-link bg-dark text-white" href="?page={{ events.previous_page_number }}">&laquo Previous</a></li>
+            {% endif %}
+
+            <li class="page-item disabled"><a class="page-link bg-dark text-white"> Page {{ events.number }} of {{ events.paginator.num_pages }}</a></li>
+
+            {% if events.has_next %}
+                <li class="page-item"><a class="page-link bg-dark text-white" href="?page={{ events.next_page_number }}">Next &raquo</a></li>
+                <li class="page-item"><a class="page-link bg-dark text-white" href="?page={{ events.paginator.num_pages }}">Last &raquo&raquo</a></li>
+            
+            {% endif %}
+        </ul>
+    </nav>
+
+{% endblock content %}

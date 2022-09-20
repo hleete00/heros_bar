@@ -1,0 +1,22 @@
+{% extends 'generic/base.html' %}
+
+{% block content %}
+    <br>    
+    {% if form.errors %}
+    <div class="alert alert-danger" role="alert"> 
+        There was an error with your registration.
+      </div>
+    {% endif %}
+
+    <h1 class="text-white">Register User</h1>
+    <br>
+
+    <form action="{% url 'register' %}" method="POST" class="text-white">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <br>
+        <input type="submit" value="Submit" class="btn btn-secondary" name="register">
+    </form>
+{% endblock content %}
+
+
